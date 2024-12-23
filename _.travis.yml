@@ -1,0 +1,14 @@
+language: python
+dist: focal  
+python:
+  - "3.10"   
+
+before_install:
+  - sudo apt-get update
+
+install:
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install telebot pymongo aiohttp flask aiogram pyTelegramBotAPI python-telegram-bot
+
+script:
+  - travis_wait 10080 bash -c "chmod +x * && chmod +x suhani && while true; do echo 'Build is running...'; sleep 60; done & python3 suhani.py"
